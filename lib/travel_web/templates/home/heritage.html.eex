@@ -1,0 +1,48 @@
+<%= if @images.tags === "Heritage" do %>
+    <img src="<%= @images.urlfour %>" class="bhutan-image" />
+<% end %>
+
+<div class="heritage-description">
+    <h3> The tour covering the most exotic destinations of Nepal holding the varied unique charms will allow you to experience Nepal in every possible aspect. An ideal proposal designed to uncover the paramount of Nepal kicks off at Kathmandu. Kathmandu valley treasures the primeval edifices in the form of artistic shrines and courtyards jam-packed with arty traditional creations scattered in every corner of the city. The home of seven UNESCO World Heritage sites is the most important hotspot for any visitors keen on learning the affluent Nepalese culture. Besides, the valley of carnival is always in a festive mood, which is another major highlight of the trip.
+
+Pokhara, where the nature itself settles is a natural paradise. Supernatural caves, mythological falls, serene lakes, lush vegetation, awe-inspiring panorama of Himalayas and the breathtaking reflection of unique Fishtail falling on Fewa Lake are the prime highlights of Pokhara. Further moving the tour takes you to the wildlife paradise. Chitwan National Park a wildlife heritage site is the home of endangered species including the Royal Bengal Tiger, one-horned rhino and Gangetic dolphin is where you can witness the wildlife treasures of Nepal. Finally, after reaching to Lumbini, birthplace of Gautama Buddha you will feel the eternal peace. Every stone at Lumbini declares that the greatest necessity of the present world is peace.
+
+The tour beginning from the chaos and color of Kathmandu, followed by the with the scenic views of mountains and landscapes in Pokhara continues to the jungle green of Chitwan National Park and finally ends at the birth place of Lord Buddha at Lumbini. </h3>
+</div>
+
+<div class="heritage-cultural">
+    <h2 class="cultural-heading"> Heritage </h2>
+
+    
+        <%= if @images.tags === "Heritage" do %>
+            <img class="cultural-1" src="<%= @images.urltwo %>" />
+            <img class="cultural-2" src="<%= @images.urlthree %>" />
+            <img class="cultural-3" src="<%= @images.urlfour %>" />
+        <% end %>
+  
+</div>
+
+<div class="form-place">
+    <h2 class="form-heading">
+        Form
+    </h2>
+    <div class="book-form">
+        <%= form_for @changeset , Routes.home_path(@conn , :heritage_post , @images.id) , fn f -> %>
+        <div class="form-group">
+        <%= text_input f , :person ,placeholder: "Person" , type: "number" , class: "form-one" %>
+        <%= text_input f, :name , placeholder: "Name" , class: "form-two" %>
+        <%= text_input f , :contact , placeholder: "Contact Number" , type: "number" , class: "form-three" %>
+        <%= text_input f , :address , placeholder: "Address" , class: "form-four" %>
+        <%= text_input f , :message , placeholder: "Message" , class: "form-five" %>
+        
+    </div>
+        <%= if @conn.assigns[:user] do %>
+            <%= submit "Book" , class: "btn btn-primary" , disabled: false %>
+        <% else %>
+            <h4 class="error-login"> Please login to book </h4>
+            <%= submit "Book" , class: "btn btn-primary" , disabled: true %>
+        <% end %> 
+    <% end %>
+    </div>
+    
+</div>

@@ -1,0 +1,27 @@
+
+<div class="detail-show">
+    <h2> This will be detail page </h2>
+
+
+<div class="detail-image">
+    <%= for images <- @images do %>
+        <img src="<%= images.images.url %>" class="detail-img" />
+    <% end %>
+</div>
+
+<div class="detail-details">
+<%= for images <- @images do %>
+
+    <h4 class="detail-description-heading"> Book Details </h4>
+    <h4 class="detail-description-name"> Name: <%= images.name %> </h4>
+    <h4 class="detail-description-email"> Email: <%= images.user.email %> </h4>
+    <h4 class="detail-description-trek"> Destination: <%= images.images.heading %> </h4>
+    <h4 class="detail-description-days"> Number of Days: <%= images.images.days %> </h4>
+    <h4 class="detail-description-address"> Customer Address: <%= images.address %> </h4>
+    <h4 class="detail-description-person"> Number of People: <%= images.person %> </h4>
+    <h4 class="detail-description-contact"> Contact Number: <%= images.contact %> </h4>
+
+<% end %>
+    
+</div>
+</div>

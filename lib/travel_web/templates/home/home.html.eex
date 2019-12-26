@@ -1,0 +1,214 @@
+<div class="header-main__section">
+    <img class="main-img" src="<%= Routes.static_path(@conn , "/images/solu.jpg") %>" />
+    <h3 class="main-heading"> Explore Nepal </h3>
+    <p class="main-description"> We connect you with the right person to get you there </p>
+
+    <%= link "Check out" , to: Routes.home_path(@conn , :trek) , class: "btn btn-primary main-button"  %>
+</div>
+
+<div class="feature-section">
+    <div class="feature-one">
+        <img class="icon-1" src="<%= Routes.static_path(@conn , "/images/team.png") %>" />
+        <h3 class="feature-heading-1"> Real People </h3>
+        <p class="feature-description-1"> More than a travel agent, your consultant is a fellow traveler with a passion to help you see the world </p>
+    </div>
+
+    <div class="feature-two">
+        <img class="icon-2" src="<%= Routes.static_path(@conn , "/images/trained.png") %>" />
+        <h3 class="feature-heading-2"> Highly Experience Guide </h3>
+        <p class="feature-description-2"> Paragraph </p>
+    </div>
+
+    <div class="feature-three">
+        <img class="icon-3" src="<%= Routes.static_path(@conn , "/images/trek.png") %>" />
+        <h3 class="feature-heading-3"> Best Trek Experience </h3>
+        <p class="feature-description-3"> Paragraph </p>
+    </div>
+</div>
+
+<div class="offer-section">
+    <%= for image <- @images do %>  
+        <%= if image.tags === "Summer" do %>
+            <img class="img-section" src="<%= image.url %>" />
+            <h3 class="header-offer"> Jumpstart Summer with up to 75% OFF </h3>
+            <p class="description-offer"> Summer’s almost here, so now’s the time to make those travel plans. And with these offers, you won’t want to wait. Exclusive, now through 5/24/19: Save up to 75%; Up to $300 in air credits; Buy 1, get 1 free sightseeing tour; or kids stay & eat free. And for 5 days only, get up to an additional $200 OFF your vacation! Leave the planning to us, so all you need to do is have fun in the sun. </p>
+            <%= link "Let's check" , to: Routes.home_path(@conn , :book , image.id) , class: "btn btn-primary offer-button main-button" %>
+        <% end %>    
+    <% end %>
+    
+</div>
+
+<div class="user-fav">
+    <h3 class="user-fav__heading fancy"><span> Our Featured Nepal Tours </span></h3>
+    <div class="first-fav">
+    <%= for image <- @images do %>
+        <%= if image.tags === "Buddhist" do %>
+            <div class="fav-img__one">
+                <img class="img-fav img" src="<%= image.url %>" />
+                <h2 class="fav-img__one-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) , class: "btn btn-primary" %> </h2>
+                <p class="fav-img__one-days"> Days: <%= image.days %> </p>
+            
+            </div>
+        <% end %>
+
+        <%= if image.tags === "Chitwan" do %>
+            <div class="fav-img__two">
+                <img class="img-fav-2 img" src="<%= image.url %>" />
+                <h2 class="fav-img__two-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) , class: "btn btn-primary" %> </h2>
+                <p class="fav-img__two-days"> Days: <%= image.days %> </p>
+            </div>
+        <% end %>
+
+        <%= if image.tags === "Hindu" do %>
+            <div class="fav-img__three">
+            <img class="img-fav-3 img" src="<%= image.url %>" />
+                <h2 class="fav-img__three-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) , class: "btn btn-primary" %> </h2>
+                <p class="fav-img__three-days"> Days: <%= image.days %> </p>
+                
+            </div>
+        <% end %>
+        <% end %>
+    </div>
+
+        <div class="second-fav">
+        <%= for image <- @images do %>
+            <%= if image.tags === "Khaptad" do %>
+                <div class="fav-img__four">
+                    <img class="img-fav-4 img" src="<%= image.url %>" />
+                    <h2 class="fav-img__four-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) , class: "btn btn-primary" %> </h2>
+                    <p class="fav-img__four-days"> Days: <%= image.days %> </p>
+                    
+                </div>
+            <% end %>
+        
+        <%= if image.tags === "Kathmandu" do %>
+        <div class="fav-img__five">
+            <img class="img-fav-5 img" src="<%= image.url %>" />
+            <h2 class="fav-img__five-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) , class: "btn btn-primary" %> </h2>
+            <p class="fav-img__five-days"> Days: <%= image.days %> </p>
+            
+        </div>
+        <% end %>
+
+        <%= if image.tags === "Nagarkot" do %>
+            <div class="fav-img__six">
+                <img class="img-fav-6 img" src="<%= image.url %>" />
+                <h2 class="fav-img__six-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) , class: "btn btn-primary" %> </h2>
+                <p class="fav-img__six-days"> Days:<%= image.days %> </p>
+            </div>
+        <% end %>
+        <% end %>
+    </div>
+    
+
+    
+
+    <div class="third-fav">
+    <%= for image <- @images do %>
+    <%= if image.tags === "Makalu" do %>
+        <div class="fav-img__seven">
+            <img class="img-fav-7 img" src="<%= image.url %>" />
+            <h2 class="fav-img__seven-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) , class: "btn btn-primary" %> </h2>
+            <p class="fav-img__seven-days"> Days:<%= image.days %> </p>
+            
+        </div>
+    <% end %>
+
+        <%= if image.tags === "Humla" do %>
+            <div class="fav-img__eight">
+                <img class="img-fav-8 img" src="<%= image.url %>" />
+                <h2 class="fav-img__eight-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) , class: "btn btn-primary" %> </h2>
+                <p class="fav-img__eight-days">Days: <%= image.days %> </p>
+                
+            </div>
+        <% end %>
+        
+    <%= if image.tags === "Shey" do %>
+        <div class="fav-img__nine">
+            <img class="img-fav-9 img" src="<%= image.url %>" />
+            <h2 class="fav-img__nine-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) , class: "btn btn-primary" %> </h2>
+            <p class="fav-img__nine-days">Days: <%= image.days %> </p>
+        </div>
+    <% end %>
+    <% end %>
+        
+</div>
+</div>
+
+<div class="trek-popular">
+    <h3 class="popular-heading fancy"><span>Our Most Popular Trekking Tours </span> </h3>
+    <div class="popular-one">
+        <%= for image <- @images do %>
+            <%= if image.tags === "Makalu" do %>
+                <div class="popular-one__first">
+                <img class="popular-one__first-img img" src=<%= image.urltwo %> />
+                    <h2 class="popular-one__first-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) , class: "btn btn-primary" %> </h2>
+                    <p class="popular-one__first-days"> Days:<%= image.days %> </p>
+                </div>
+            <% end %>
+            
+
+        <%= if image.tags === "Shey" do %>
+        <div class="popular-one__second">
+            <img src="<%= image.urltwo %>" class="popular-one__second-img img" />
+            <h3 class="popular-one__second-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) , class: "btn btn-primary" %> </h3>
+            <p class="popular-one__second-days">Days: <%= image.days %> </p>
+        </div>
+        <% end %>
+
+        <%= if image.tags === "Dolpo" do %>
+        <div class="popular-one__third">
+            <img src="<%= image.urltwo %>" class="popular-one__third-img img" />
+            <h3 class="popular-one__third-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) , class: "btn btn-primary" %> </h3>
+            <p class="popular-one__third-days"> Days:<%= image.days %> </p>
+        </div>
+        <% end %>
+        <% end %>
+</div>
+
+
+    <div class="popular-two">
+    <%= for image <- @images do %>
+        <%= if image.tags === "Rara" do %>
+        <div class="popular-two__one">
+            <img class="popular-two__one-img img" src="<%= image.url %>" />
+            <h2 class="popular-two__one-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) , class: "btn btn-primary" %> </h2>
+            <p class="popular-two__one-days">Days: <%= image.days %> </p>
+        </div>
+            
+        <% end %>
+
+        <%= if image.tags === "ABC" do %>
+            <div class="popular-two__second">
+                <img class="popular-two__second-img img" src="<%= image.url %>" />
+                <h2 class="popular-two__second-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) , class: "btn btn-primary" %> </h2>
+                <p class="popular-two__second-days">Days: <%= image.days %> </p>
+            </div>
+        <% end %>
+    
+        <%= if image.tags === "Jomson" do %>
+            <div class="popular-two__third">
+                <img class="popular-two__third-img img" src="<%= image.url %>" />
+            <h2 class="popular-two__third-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) , class: "btn btn-primary" %> </h2>
+            <p class="popular-two__third-days"> Days:<%= image.days %> </p>
+            </div>
+        <% end %>
+        <% end %>
+    </div>
+</div>
+
+
+
+
+ <%# <h3> Follow us on </h3>
+        <p> Facebook </p>
+        <p> Instagram </p>
+
+        <h3> Destination </h3>
+        <p> Nepal </p>
+        <p> Bhutan </p>
+
+        <h3> Travel type </h3>
+        <p> Trek </p>
+        <p> Hike </p>
+        <p> Couple Holiday   </p> %>

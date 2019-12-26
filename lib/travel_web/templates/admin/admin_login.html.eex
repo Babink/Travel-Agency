@@ -1,0 +1,10 @@
+<h2> This will be login apge </h2>
+
+<%= form_for @changeset , Routes.admin_path(@conn , :post_admin) , fn f -> %>
+    <div class="form-group">
+        <%= text_input f , :username , placeholder: "UserName" , class: "form-control" %>
+        <%= text_input f, :password , type: "password" , placeholder: "Password" , class: "form-control" %>
+
+        <%= submit "Login" , class: "btn btn-primary" %>
+    </div>
+<% end %>

@@ -1,0 +1,138 @@
+<%# <div class="park-image">
+    <h1> This will be park sectino </h1>
+</div> %>
+
+<img class="park-image" src="<%= Routes.static_path(@conn , "/images/np.jpeg") %>" />
+
+<h2 class="national-park__heading"> National Park of  Nepal </h2>
+<h4 class="national-park__paragraph"> Discover Nepal through refreshing tropical & subtropical forests in the lap of the Himalayas.</h4>
+
+<div class="description-park">
+    <p class="national-park__eassy"> Trek through refreshing lush green tropical and subtropical forests in the lap of the Himalayas, where, you leave behind modern-day-life and venture off walking along trails that offer extreme geographic features and exotic flora and fauna. </p>
+    <p class="national-park__eassy-2"> Koshi Tappu Wildlife Reserve is one of the best places to visit for novice birdwatchers. Ornithologists have recorded 440 bird species in Nepal, ranging from eagles and other raptors to white-necked storks and brilliant-colored sunbirds. </p>
+    <p class="national-park__eassy-3"> Visit Sagarmatha National Park, Annapurna Conservation Area, Langtang National Park, Makalu Barun National Park, Kanchenjunga Conservation Area, Rara National Park, and Shey Phoksundo National Park, for an encounter with the mighty Himalayas along undiscovered trails and exotic flora and fauna. </p>
+    <p class="national-park__eassy-4"> Follow jungle trails with experienced guides, who have the forest at the back of their hand. Each trip is unique as one never knows what will show up: a bear, a herd of deer, a flock of peacocks, Langur monkeys on treetops, a pair of rhinos and someone lucky gets to see the elusive tiger prowling among the tall grass. </p>
+</div>
+
+<div class="park-1">
+    <h2 class="heading-1"> National park of Nepal </h2>
+    <%= for image <- @images do %>
+        <%= if image.tags === "Sagarmatha" do %>
+        <div class="national-1">
+            <img class="national-1-img img" src="<%= image.url %>" />
+            <h2 class="national-1-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id)  , class: "btn btn-primary" %> </h2>
+            <p class="national-1-days"> Days: <%= image.days %> </p>
+        </div>
+            
+        <% end %>
+
+        <%= if image.tags === "Khaptad" do %>
+        <div class="national-2">
+            <img class="national-2-img img" src="<%= image.urlthree %>" />
+            <h2 class="national-2-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id)  , class: "btn btn-primary" %> </h2>
+            <p class="national-2-days"> Days: <%= image.days %> </p>
+        </div>
+            
+        <% end %>
+
+        <%= if image.tags === "Bardiya" do %>
+            <div class="national-3">
+            <img class="national-3-img img" src="<%= image.url %>" />
+            <h2 class="national-3-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id)  , class: "btn btn-primary" %> </h2>
+            <p class="national-3-days"> Days: <%= image.days %> </p>
+        </div>
+        <% end %>
+
+        <%= if image.tags === "Langtang" do %>
+            <div class="national-4">
+            <img class="national-4-img img" src="<%= image.url %>" />
+            <h2 class="national-4-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id)  , class: "btn btn-primary" %> </h2>
+            <p class="national-4-days"> Days: <%= image.days %> </p>
+        </div>
+        <% end %>
+
+        <%= if image.tags === "Chitwan" do %>
+            <div class="national-5">
+            <img class="national-5-img img" src="<%= image.urlthree %>" />
+            <h2 class="national-5-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id)  , class: "btn btn-primary" %> </h2>
+            <p class="national-5-days"> Days: <%= image.days %> </p>
+        </div>
+        <% end %>
+
+        <%= if image.tags === "Shey" do %>
+            <div class="national-6">
+            <img class="national-6-img img" src="<%= image.url %>" />
+            <h2 class="national-6-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id)  , class: "btn btn-primary" %> </h2>
+            <p class="national-6-days"> Days: <%= image.days %> </p>
+        </div>
+        <% end %>
+    <% end %>
+
+    
+</div>
+
+<div class="park-2">
+    <h2 class="heading-2"> WildLife reserve </h2>
+    <%= for image <- @images  do %>
+        <%= if image.tags === "Koshi" do %>
+            <div class="wild-1">
+                <img class="wild-1-img" src="<%= image.url %>" />
+                <h2 class="wild-1-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) %> </h2>
+                <p class="wild-1-days"> Days: <%= image.days %> </p>
+            </div>
+            
+        <% end %>
+        <%= if image.tags === "Dhorpatan" do %>
+            <div class="wild-2">
+                <img class="wild-2-img" src="<%= image.url %>" />
+                <h2 class="wild-2-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) %> </h2>
+                <p class="wild-2-days"> Days: <%= image.days %> </p>
+            </div>
+        <% end %>
+    <% end %>
+</div>
+
+<div class="park-3">
+    <h2 class="con-heading"> Conservation are of Nepal </h2>
+    <%= for image <- @images do %> 
+        <%= if image.tags === "Kanchan" do %>
+            <div class="con-1">
+                <img class="con-1-img img" src="<%= image.url %>" />
+                <h2 class="con-1-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) %> </h2>
+                <p class="con-1-days"> Days: <%= image.days %> </p>
+            </div>
+        <% end %>
+
+        <%= if image.tags === "Annapurna" do %>
+            <div class="con-2">
+                <img class="con-2-img img" src="<%= image.url %>" />
+                <h2 class="con-2-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) %> </h2>
+                <p class="con-2-days"> Days: <%= image.days %> </p>
+            </div>
+        <% end %>
+
+        <%= if image.tags === "API" do %>
+            <div class="con-3">
+                <img class="con-3-img img" src="<%= image.url %>" />
+                <h2 class="con-3-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) %> </h2>
+                <p class="con-3-days"> Days: <%= image.days %> </p>
+            </div>
+        <% end %>
+
+        <%= if image.tags === "Gauri" do %>
+            <div class="con-4">
+                <img class="con-4-img img" src="<%= image.url %>" />
+                <h2 class="con-4-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) %> </h2>
+                <p class="con-4-days">Days:  <%= image.days %> </p>
+            </div>
+        <% end %>
+
+        <%= if image.tags === "Manaslu" do %>
+            <div class="con-5">
+                <img class="con-5-img img" src="<%= image.url %>" />
+                <h2 class="con-5-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) %> </h2>
+                <p class="con-5-days"> Days: <%= image.days %> </p>
+            </div>
+        <% end %>
+    <% end %>
+</div>

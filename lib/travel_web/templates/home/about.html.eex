@@ -1,0 +1,7 @@
+<div class="about-main">
+    <h1 class='about-header'> About Us </h1>
+    <div class="about-description">
+        <img class="about-img img" src="<%= Routes.static_path(@conn , "/images/solu.jpg" ) %>" />
+        <h3 class="img-description-about"> Hello world </h3>
+    </div>
+</div>

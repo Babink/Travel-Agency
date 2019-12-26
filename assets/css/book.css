@@ -1,0 +1,182 @@
+.book-headers{
+    /* background-color: red; */
+
+    grid-row: 1/2;
+    grid-column: 1/-1;
+    width: 90%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    padding: 5rem;
+}
+
+.book-head{
+    grid-row: 1/2;
+    grid-column: 1/3;
+
+    padding: 3rem;
+    align-self: flex-start;
+    justify-self: center;
+}
+
+.short-description{
+    grid-column: 5/6;
+    grid-row: 1/2;
+
+    align-self: flex-start;
+
+    display: grid;
+    grid-template-rows: max-content repeat(2 , 1fr);
+    /* grid-template-columns: repeat() */
+    margin-top: 10rem;
+    height: 20rem;
+    background-color: rgba(60, 50, 114, 0.438)
+}
+
+.overview{
+    grid-row: 1/2;
+    font-size: 30px;
+    /* align-self: center; */
+    justify-self: center;
+}
+
+.price-overview{
+    grid-row: 2/3;
+    justify-self: center;
+    align-self: center;
+    grid-column: 1/-1;
+}
+
+.days-overview{
+    grid-row: 3/4;
+    justify-self: center;
+    align-self: center;
+    grid-column: 1/-1;
+}
+
+
+
+.book-description-text{
+    font-size: 18px;
+    padding: 4rem;
+}
+
+.include,
+.exclude{
+    justify-self: flex-start;
+    align-self: flex-end;
+}
+
+.short-include{
+    grid-row: 2/3;
+
+    display: grid;
+    grid-template-rows: max-content repeat(1 , 1fr);
+}
+
+.short-exclude{
+    grid-row: 3/4;
+    display: grid;
+    grid-template-rows: max-content repeat(1 , 1fr);
+}
+
+.book-form{
+    /* background-color: blue; */
+    justify-self: center;
+    width: 50%;
+    grid-row: 2/3;
+    grid-column: 2/5;
+}
+
+.book-description{
+    /* background-color: tomato; */
+
+    grid-row: 3/4;
+    grid-column: 2/5;
+
+    height: 50rem;
+}
+
+.book-extra{
+    /* background-color: teal; */
+    height: 50rem;
+
+    grid-row: 3/5;
+    grid-column: 4/-1;
+}
+
+
+.include-exclude{
+    background-color: yellowgreen;
+
+    grid-row: 4/5;
+    grid-column: 1/4;
+}
+
+.recommend{
+    /* background-color: violet; */
+    height: 50rem;
+    grid-row: 5/6;
+    grid-column: 1/-1;
+
+    grid-template-rows: max-content repeat(3 , 1fr);
+    grid-template-columns: repeat(6 , 1fr);
+
+    grid-column-gap: 4rem;
+    display: grid;
+    overflow: hidden;
+}
+
+.recommend-heading{
+    padding: 2rem;
+    justify-self: center;
+    align-self: center;
+    grid-row: 1/2;
+    grid-column: 1/-1;
+}
+
+.recommend-img{
+    height: 100%;
+    width: 100%;
+}
+
+.recommend-one{
+    grid-row: 2/4;
+    grid-column: 1/3;
+    transition: all .4s ease-out;
+    /* background-color: yellow; */
+}
+
+.recommend-one:hover{
+    transform: scale(1.05);
+}
+
+
+.recommend-two{
+    grid-row: 2/4;
+    grid-column: 3/5;
+    transition: all .4s ease-out;
+    /* background-color: steelblue; */
+}
+
+.recommend-two:hover{
+    transform: scale(1.05);
+}
+
+.recommend-three{
+    grid-row: 2/4;
+    grid-column: 5/7;
+    /* border: 1px solid black; */
+
+    /* overflow: hidden; */
+    transition: all .4s ease-out;
+    /* background-color: royalblue; */
+}
+
+.recommend-three:hover{
+    transform: scale(1.05);
+}
+
+.error-login{
+    color: red;
+}

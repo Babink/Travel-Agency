@@ -1,0 +1,17 @@
+<h1> Here admin can post images </h1>
+
+<%= form_for @changeset , Routes.admin_path(@conn , :images_post) , fn f -> %>
+    <div class="form-group">
+        <%= text_input f , :url , placeholder: "First URL" , class: "form-control form-one" %>
+        <%= text_input f, :heading , placeholder: "Heading" , class: "form-control form-one" %>
+        <%= text_input f , :description , placeholder: "Description" ,class: "form-control form-one" %>
+        <%= text_input f , :price , placeholder: "Price" , class: "form-control form-one" %>
+        <%= text_input f , :days , placeholder: "Days"  ,  class: "form-control form-one" %>
+        <%= text_input f , :tags , placeholder: "Tags" , class: "form-control form-one" %>
+        <%= text_input f , :urlTwo , placeholder: "URL TWO" , class: "form-control form-one" %>
+        <%= text_input f , :urlThree , placeholder: "URL three" , class: "form-control form-one" %>
+        <%= text_input f , :urlFour , placeholder: "URL Four" , class: "form-control form-one" %>
+    </div>
+
+    <%= submit "Post" , class: "btn btn-primary"  %>
+<% end %>

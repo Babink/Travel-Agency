@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Travel · Phoenix Framework</title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+  </head>
+  <body>
+    <header class="app-header">
+
+      <div class="header-element">
+      <%= link "Home" , class: "app-header__home" , to: Routes.home_path(@conn , :index) %>
+      <%= link "National Park", class: "app-header__park" , to: Routes.home_path(@conn , :park) %>
+      <%= link "Heritage sites" ,class: "app-header__heritage" , to: Routes.home_path(@conn , :heritage , 19) %>
+      <%= link "Trek",class: "app-header__trek" , to: Routes.home_path(@conn , :trek) %>
+      <%= link "Bhutan", class: "app-header__about" , to: Routes.home_path(@conn , :bhutan , 52) %>
+      <%= link "About", class: "app-header__contact" , to: Routes.home_path(@conn , :about) %>
+      <%= if @conn.assigns.user do %>
+        <%= link "Logout", class: "app-header__login" , to: Routes.auth_path(@conn , :logout) %>
+      <%= else %>
+        <%= link "Login", class: "app-header__login" , to: Routes.auth_path(@conn , :login_page) %>
+      <% end %>
+      
+      </div>
+        
+    </header>
+    <main role="main" class="app-main">
+      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <%= render @view_module, @view_template, assigns %>
+
+      <div class="footer">
+        <div class="footer-show">
+        <h2 class="book-now"> Book now </h2>
+        <p class="contact-no"> Phone number </p>
+        <img class="phone-icon" src="<%= Routes.static_path(@conn , "/images/phone.png") %>" />
+        <h2 class="email-send"> Send us Email </h2>
+        <p class="email-add"> Email address </p>
+        <img class="email-icon" src="<%= Routes.static_path(@conn , "/images/email.png") %>" />
+        <h2 class="assiocate"> We are assiocate with </h2>
+        <p class="tourism-board"> Nepal Tourism board </p>
+
+      </div>
+
+      <div class="main-footer_section">
+        <h3 class="footer-about__heading"> About us </h3>
+        <p class="footer-about__description"> Description here </p>
+        <%= link "Read more" , to: Routes.home_path(@conn , :about) , class: "link-about" %>
+
+        <h3 class="our_program"> Our Program </h3>
+          <%= link "National Park" , to: Routes.home_path(@conn , :park) , class: "link-park"  %>
+          <%= link "Heritage sites" , to: Routes.home_path(@conn , :heritage , 19) , class: "link-site" %>
+          <%= link "Trek" , to: Routes.home_path(@conn , :trek) , class: "link-trek" %>
+          <%= link "Bhutan" , to: Routes.home_path(@conn , :bhutan , 52) , class: "link-bhutan" %>
+
+        <h3 class="find-us"> Find us </h3>
+        <img class="fb-icon" src="<%= Routes.static_path(@conn , "/images/fb.png" ) %>" />
+        <img class="ig-icon" src="<%= Routes.static_path(@conn , "/images/ig.png" ) %>" />
+        <img class="tw-icon" src="<%= Routes.static_path(@conn , "/images/tw.png" ) %>" />
+
+        <img class="logo" src="<%= Routes.static_path(@conn , "/images/logo.png" ) %>" />
+      </div>
+    </div>
+
+    </main>
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+.offer-section{
+    /* background-color: pink; */
+
+    grid-row: 3/4;
+    grid-column: 1/-1;
+
+    height: 40rem;
+    grid-template-rows: repeat(5 , 1fr);
+    grid-template-columns: repeat(5 , 1fr);
+    display: grid;
+    /* padding: 5rem; */
+
+    border: 1px solid black;
+    margin-bottom: 10rem;
+}
+
+.img-section{
+    grid-row: 1/-1;
+    grid-column: 1/3;
+
+    margin: 5rem;
+    width: 80%;
+    height: 70%;
+
+    /* background-color: pink; */
+}
+
+.header-offer{
+    grid-row: 2/3;
+    grid-column: 3/6;
+
+    font-size: 20px;
+
+    justify-self: center;
+    align-self: center;
+}
+
+
+.description-offer{
+    grid-row: 3/5;
+    grid-column: 3/6;
+
+    font-size: 15px;
+    font-style: italic;
+}
+
+
+.offer-button{
+    grid-row: 5/6;
+    grid-column: 3/6;
+
+    align-self: center;
+    justify-self: center;
+
+}

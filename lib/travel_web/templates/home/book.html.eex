@@ -1,0 +1,60 @@
+<h1 class="book-head"> <%= @mydata.heading %> </h1>
+
+<%= if @mydata do %>
+    <div class="book-headers">
+        <img src="<%= @mydata.url %>" class="book-headers" />
+    </div>
+
+    <div class="short-description">
+        <h4 class="overview"> Trip Overview </h4>
+
+        <div class="days-overview">
+            <h4 class="days"> Days: <%= @mydata.days %> </h4>
+        </div>
+
+        <div class="price-overview">
+            <h4 class="price"> Price: <%= @mydata.price %>  </h4>
+        </div>
+    </div>
+
+    <div class="book-form">
+    <%= form_for @changeset , Routes.home_path(@conn , :book_post , @mydata.id) , fn f -> %>
+        <div class="form-group">
+            <%= text_input f , :person , type: "number" , placeholder: "Persons" , class: "form-control" %>
+                <%= text_input f , :name  , placeholder: "Name" , class: "form-control" %>
+            <%= text_input f , :contact , type: "number" , placeholder: "Contact Number" , class: "form-control" %>
+            <%= text_input f , :address , placeholder: "Address" , class: "form-control" %>
+            <%= text_input f , :message , placeholder: "Message" , class: "form-control" %>
+        </div>
+
+        <%= if @conn.assigns[:user] do %>
+            <%= submit "Book" , class: "btn btn-primary" %>
+        <% else %>
+            <h4 class="error-login"> Please login to book </h4>
+            <%= submit "Book" , class: "btn btn-primary" , disabled: true %>
+        <% end %>
+        
+    <% end %>
+</div>
+
+<div class="book-description">
+    <h3 class="book-description-text"> <%= @mydata.description %> </h3>
+</div>
+
+<div class="book-extra">
+</div>
+
+<div class="recommend">
+    <h1 class="recommend-heading"> More Images from <%= @mydata.heading %> </h1>
+
+    <img class="recommend-one recommend-img" src="<%= @mydata.urltwo %>" />
+    <img class="recommend-two recommend-img" src="<%= @mydata.urlthree %>" />
+    <img class="recommend-three recommend-img" src="<%= @mydata.urlfour %>" />
+</div>
+
+
+<% end %>
+
+
+
+

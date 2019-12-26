@@ -1,0 +1,255 @@
+.user-fav{
+    grid-row: 4/5;
+    grid-column: 1/-1;
+
+    background-color: rgba(217, 217, 223, 0.226);
+
+    display: grid;
+
+    grid-template-rows: repeat(13 , 1fr);
+    grid-template-columns: repeat(5 , 1fr);
+}
+
+.first-fav{
+    grid-row: 2/5;
+    grid-column: 1/-1;
+
+    grid-template-rows: repeat(3 , 1fr);
+    grid-template-columns: repeat(5 , 1fr);
+    display: grid;
+
+    grid-column-gap: 3rem;
+    /* background-color: pink; */
+}
+
+.second-fav{
+    grid-row: 6/9;
+    grid-column: 1/-1;
+    grid-template-rows: repeat(3 , 1fr);
+    grid-template-columns: repeat(5 , 1fr);
+    display: grid;
+
+    grid-column-gap: 4rem;
+
+    /* background-color: teal; */
+}
+
+.third-fav{
+    grid-row: 10/13;
+    grid-column: 1/-1;
+    grid-template-rows: repeat(3 , 1fr);
+    grid-template-columns: repeat(5 , 1fr);
+    display: grid;
+
+    grid-column-gap: 4rem;
+
+    /* background-color: teal; */
+}
+
+.fav-img__one,
+.fav-img__two,
+.fav-img__three,
+.fav-img__four,
+.fav-img__five,
+.fav-img__six,
+.fav-img__seven,
+.fav-img__eight,
+.fav-img__nine{
+    border: 1px solid rgb(107, 101, 101);
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(3 , 1fr);
+    grid-template-rows: repeat(3 , 1fr);
+}
+
+.img-fav,
+.img-fav-2,
+.img-fav-3,
+.img-fav-4,
+.img-fav-5,
+.img-fav-6,
+.img-fav-7,
+.img-fav-8,
+.img-fav-9
+{
+    height: 100%;
+    width: 100%;
+    grid-row: 1/3;
+    grid-column: 1/-1;
+}
+
+
+
+
+.img{
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    grid-row: 1/3;
+    transform-origin: 0 0;
+    transition: transform .4s ease-out;
+}
+
+.img:hover{
+    /* overflow: hidden; */
+    transform: scale(1.03);
+}
+
+
+.fav-img__one-heading,
+.fav-img__two-heading,
+.fav-img__three-heading,
+.fav-img__four-heading,
+.fav-img__five-heading,
+.fav-img__six-heading,
+.fav-img__seven-heading,
+.fav-img__eight-heading,
+.fav-img__nine-heading
+{
+    grid-row: 3/4;
+    grid-column: 1/-1;
+    font-size: 20px;
+
+    margin-top: 2rem;
+    align-self: flex-start;
+    justify-self: center;
+}
+
+
+.user-fav__heading{
+    align-self: center;
+    justify-self: center;
+
+    grid-row: 1/2;
+    grid-column: 1/-1;
+
+    margin: 0 0 2em 0;
+}
+
+.fancy {
+    line-height: 0.5;
+    text-align: center;
+  }
+  .fancy span {
+    display: inline-block;
+    position: relative;  
+  }
+  .fancy span:before,
+  .fancy span:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    top: 0;
+    width: 300px;
+  }
+  .fancy span:before {
+    right: 100%;
+    margin-right: 15px;
+  }
+  .fancy span:after {
+    left: 100%;
+    margin-left: 15px;
+  }
+
+.fav-img__one-days,
+.fav-img__two-days,
+.fav-img__three-days,
+.fav-img__four-days,
+.fav-img__five-days,
+.fav-img__six-days,
+.fav-img__seven-days,
+.fav-img__eight-days,
+.fav-img__nine-days
+{
+    grid-row: 3/4;
+    grid-column: 2/4;
+
+    margin: 5rem;
+    align-self: center;
+    justify-self: flex-end;
+}
+
+.custom-btn{
+    grid-row: 3/4;
+    grid-column: 1/-1;
+
+    justify-self: center;
+    align-self: flex-end;
+
+    transition: all .4s ease-out;
+}
+
+.custom-btn:hover{
+    cursor: pointer;
+    transform: translateY(-5px);
+    background-color: rgb(81, 211, 81);
+    color: white;
+    border-radius: 100%;
+    padding: 1rem;
+}
+
+.fav-img__one{
+    grid-row: 1/-1;
+    grid-column: 2/3;
+    
+    /* background-color: gainsboro;; */
+}
+
+.fav-img__two{
+    grid-row: 1/-1;
+    grid-column: 3/4;
+
+    /* background-color: springgreen; */
+}
+
+.fav-img__three{
+    grid-row: 1/-1;
+    grid-column: 4/5;
+
+    /* background-color: tomato; */
+}
+
+.fav-img__four{
+    grid-row: 1/-1;
+    grid-column: 2/3;
+
+    /* background-color: yellow; */
+}
+
+.fav-img__five{
+    grid-row: 1/-1;
+    grid-column: 3/4;
+
+    /* background-color: turquoise; */
+}
+
+.fav-img__six{
+    grid-row: 1/-1;
+    grid-column: 4/5;
+
+    /* background-color: violet; */
+}
+
+.fav-img__seven{
+    grid-row: 1/-1;
+    grid-column: 2/3;
+
+    /* background-color: steelblue; */
+}
+
+.fav-img__eight{
+    grid-row: 1/-1;
+    grid-column: 3/4;
+
+    /* background-color: slateblue; */
+}
+
+.fav-img__nine{
+    grid-row: 1/-1;
+    grid-column: 4/5;
+
+    /* background-color: salmon; */
+}

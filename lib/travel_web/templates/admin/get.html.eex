@@ -1,0 +1,74 @@
+<div class="admin-main">
+    <h3 class="view-heading"> Admin view </h3>
+    <%= link "Logout Admin" , to: Routes.admin_path(@conn , :delete_admin) , class: "logout-admin" %>
+        <div class="view-one">
+        <%= for image <- @images do %>
+        <div class="view-one-1">
+            <img src="<%= image.images.url %>" class="view-img img-view" />
+            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
+        </div>
+
+        <div class="view-one-2">
+            <img src="<%= image.images.url %>" class="view-img img-view" />
+            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
+        </div>
+
+        <div class="view-one-3">
+            <img src="<%= image.images.url %>" class="view-img img-view" />
+            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
+        </div>
+
+        <div class="view-one-4">
+            <img src="<%= image.images.url %>" class="view-img img-view" />
+            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
+        </div>
+        <% end %>
+    </div>
+
+    <div class="view-two">
+         <%= for image <- @images do %>
+        <div class="view-two-1">
+            <img src="<%= image.images.url %>" class="view-img img-view" />
+            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
+        </div>
+
+        <div class="view-two-2">
+            <img src="<%= image.images.url %>" class="view-img img-view" />
+            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
+        </div>
+
+        <div class="view-two-3">
+            <img src="<%= image.images.url %>" class="view-img img-view" />
+            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
+        </div>
+
+        <div class="view-two-4">
+            <img src="<%= image.images.url %>" class="view-img img-view" />
+            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
+        </div>
+        <% end %>
+    </div>
+    <div class="view-three">
+         <%= for image <- @images do %>
+        <div class="view-three-1">
+            <img src="<%= image.images.url %>" class="view-img img-view" />
+            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
+        </div>
+
+        <div class="view-three-2">
+            <img src="<%= image.images.url %>" class="view-img img-view" />
+            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
+        </div>
+
+        <div class="view-three-3">
+            <img src="<%= image.images.url %>" class="view-img img-view" />
+            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
+        </div>
+
+        <div class="view-three-4">
+            <img src="<%= image.images.url %>" class="view-img img-view" />
+            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
+        </div>
+        <% end %>
+    </div>
+</div>

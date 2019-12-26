@@ -1,0 +1,107 @@
+<img src="<%= Routes.static_path(@conn , "/images/trek.jpeg") %>" , class="trek-image" />
+
+<h3 class="trek-heading"> Trek in Nepal </h3>
+<h5 class="trek-description-heading"> Nepal is one of the world's premier destinations for first-time and experienced trekkers.</h5>
+
+<div class="trek-description">
+    <h3> Trekking in Nepal is more enjoyable than climbing the snowy peaks and offers spectacular scenic beauty. The Himalayan region, till now, has been comparatively less affected by the modern urban civilization with its industrial pollution. Trekking in the Nepal Himalaya provides an opportunity to be in natural surroundings and to get away from the milling crowds of the cities. The trekker usually returns home rejuvenated, and with new enthusiasm to take up the challenges of city life. Trekkers can walk along the irregular but beautiful trails or virgin tracks in the lap of green and friendly looking hills. The rhododendron-filled, green, dark and deep forests with different seasonal flowers blossoming can catch anyone’s eye as can the scattered residential cottages, domestic and forest animals, variety of birds, both Hindus and Buddhist temples, mountains, breath-taking landscape, and above all warm greeting from smiling local people. It is no more than walking along 4-8 hours per day on the off the beaten track. Trekking and hiking appeals to the people for different purposes. However, generally what Himalaya Trekking in Nepal offers are the speculative views of the mountain ranges, rhythmic steps of your on-foot travel offers the ample opportunities to relish with nature. Walking beneath the shadow of the great Himalayas is really enthralling and captivating as you switch up through grand canyons, gorgeous waterfall, rumbling river, rustling trees, whispering shrubs and whistling breeze. Above all the colorful communities of mountain inhabitants and their opened-arm welcoming nature, who loves the laughter and peace of others, add the right amount of salt to your delicious trip. Moreover, the perfect wilderness elates spiritual upliftment. Some areas consist of unexplored rivers, waterfalls, streams, mountain top lakes and flower filled valley bottoms. We are blessed to be a part of such a place, the ‘land of Shangri-La’, the ‘Central Himalayas’. The wildlife, the rugged, unexplored mountains; the ‘peace’ of being in this remote, pristine environment cannot but inspire in each of our guests a sense of oneness with something this great. To stand in the sunshine under the blue skies, on the top of a mountain no one has ever stood on since the beginning of time is truly a wonder. We are small enough to be flexible and therefore are able to customize our Nepal Trekking Packages to suit the special interests of our guests. Our wilderness Nepal Himalaya trekking tour are designed to suit all degrees of expertise and the various levels of fitness and energy. One can also trek on ponies/horses in some remote places, which is equally enthralling for visitors. Pony treks follow nearly the same routes and are offered mostly in western region of Pokhara, Dolpo and Mustang. </h3>
+</div>
+
+<div class="trek-annapurna-region">
+    <h2 class="annapurna-heading"> Annapurna-Region Trekking </h2>
+    <%= for image <- @images do %>
+        <%= if image.tags === "Dhampus" do %>
+            <div class="annapurna-1">
+                <h3 class="annapurna-1-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) %> </h3>
+                <img class="annapurna-1-img img" src="<%= image.url %>" />
+                <p class="annapurna-1-days"> Days: <%= image.days %> </p>
+            </div>
+        <% end %>
+
+        <%= if image.tags === "Dhampus" do %>
+            <div class="annapurna-2">
+                <h3 class="annapurna-2-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) %> </h3>
+                <img class="annapurna-2-img img" src="<%= image.url %>" />
+                <p class="annapurna-2-days"> Days: <%= image.days %> </p>
+            </div>
+        <% end %>
+
+        <%= if image.tags === "Jomson" do %>
+            <div class="annapurna-3">
+                <h3 class="annapurna-3-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) %> </h3>
+                <img class="annapurna-3-img img" src="<%= image.url %>" />
+                <p class="annapurna-3-days"> Days: <%= image.days %> </p>
+            </div>
+        <% end %>
+
+        <%= if image.tags === "Nar" do %>
+            <div class="annapurna-4">
+                <h3 class="annapurna-4-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) %> </h3>
+                <img class="annapurna-4-img img" src="<%= image.url %>" />
+                <p class="annapurna-4-days"> Days: <%= image.days %> </p>
+            </div>
+        <% end %>
+
+        <%= if image.tags === "ABC" do %>
+            <div class="annapurna-5">
+                <h3 class="annapurna-5-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) %> </h3>
+                <img class="annapurna-5-img img" src="<%= image.url %>" />
+                <p class="annapurna-5-days"> Days: <%= image.days %> </p>
+            </div>
+        <% end %>
+
+        <%= if image.tags === "Ghore" do %>
+            <div class="annapurna-6">
+                <h3 class="annapurna-6-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) %> </h3>
+                <img class="annapurna-6-img img" src="<%= image.url %>" />
+                <p class="annapurna-6-days"> Days: <%= image.days %> </p>
+            </div>
+        <% end %>
+    <% end %>
+</div>
+
+<div class="trek-everest-region">
+    <h2 class="everest-heading"> Everest-Region Trekking </h2>
+        <%= for image <- @images do %>
+            <%= if image.tags === "EBC" do %>
+                <div class="everest-1">
+                    <h4 class="everest-1-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) %> </h4>
+                    <img class="everest-1-img img" src="<%= image.url %>" />    
+                    <p class="everest-1-days"> Days: <%= image.days %> </p>
+                </div>
+                
+            <% end %>
+
+            <%= if image.tags === "View" do %>
+                <div class="everest-2">
+                    <h4 class="everest-2-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) %> </h4>
+                    <img class="everest-2-img img" src="<%= image.url %>" />    
+                    <p class="everest-2-days"> Days: <%= image.days %> </p>
+                </div>
+            <% end %>
+
+            <%= if image.tags === "Gokyo" do %>
+                <div class="everest-3">
+                    <h4 class="everest-3-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) %> </h4>
+                    <img class="everest-3-img img" src="<%= image.url %>" />    
+                    <p class="everest-3-days"> Days: <%= image.days %> </p>
+                </div>
+            <% end %>
+
+            <%= if image.tags === "Pikey" do %>
+                <div class="everest-4">
+                    <h4 class="everest-4-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) %> </h4>
+                    <img class="everest-4-img img" src="<%= image.url %>" />    
+                    <p class="everest-4-days"> Days: <%= image.days %> </p>
+                </div>
+            <% end %>
+
+            <%= if image.tags === "High" do %>
+                <div class="everest-5">
+                    <h4 class="everest-5-heading"> <%= link image.heading , to: Routes.home_path(@conn , :book , image.id) %> </h4>
+                    <img class="everest-5-img img" src="<%= image.url %>" />    
+                    <p class="everest-5-days"> Days: <%= image.days %> </p>
+                </div>
+            <% end %>
+        <% end %>
+</div>

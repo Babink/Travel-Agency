@@ -1,0 +1,43 @@
+<%= if @images.tags === "Bhutan-2" do %>
+    <img src="<%= @images.urlfour %>" class="bhutan-image" />
+<% end %>
+
+<div class="bhutan-description">
+    <h3> Bhutan, the country inhabited by the happiest people on Earth is the ‘Land of the Thunder Dragon’, which wows on enigma with its remote green hills, charismatic Himalayan peaks and of course the unique and authentic culture. The land of Buddhists, Bhutan is the home to people having deep-rooted religious values, centuries old tradition and amazing hospitality attributes. This is a small revered kingdom, that boasts on natural magnificence in the heart of Himalayas blended so well with the amazing culture.
+
+The outstanding landscapes dominated by lush green hills and Himalayan peaks, the big hearts of the natives while catering services to foreign travelers, and the exemplary art and architecture offer a lifetime holiday experience to every traveler visiting to Bhutan. Moreover, the highlights of this Land of Thunder Dragon also comprise the ancient forts and scared monasteries nestling in extremely unconventional locations. Travelers are not only attracted by the highlights of Bhutan that manifest its cultural and natural aspects. The wildlife in Bhutan are also equally fascinating as the country houses various species of animals, birds and plants amidst the enchanting white waterfalls and colorful prayer flags fluttering along the soaring ridges and so on.
+
+Himalayan Glory Travels & Tours provide different package tours to Bhutan that includes Central Bhutan Cultural Tour, Western Bhutan Cultural Tour, Eastern Bhutan Cultural Tour, Druk Yul Pilgrimage Tour in Bhutan and others. You are offered an opportunity to travel around the terrain and its inhabitants for an astonishing and splendid expedition with a lifetime experience </h3>
+</div>
+
+<div class="bhutan-1">
+    <h1 class="bhutan-1-heading">  Images of Bhutan </h1>
+        <%= if @images.tags === "Bhutan-2" do %>
+            <img class="bhutan-1_one bu-img" src="<%= @images.url %>" />
+            <img class="bhutan-1_two bu-img" src="<%= @images.urltwo %>" />
+            <img class="bhutan-1_three bu-img" src="<%= @images.urlthree %>" />
+    <% end %>
+</div>
+
+<div class="bhutan-2">
+    <h1 class="bhutan-2-heading"> Book Now </h1> 
+    <div class="book-form but-form">
+        <%= form_for @changeset , Routes.home_path(@conn , :bhutan_post , @images.id) , fn f ->  %>
+            <div class="form-group">
+                <%= text_input f , :person , type: "number" , placeholder: "Persons" , class: "form-control form-one" %>
+                <%= text_input f , :name , placeholder: "Name" , class: "form-control form-two"  %>
+                <%= text_input f , :contact , type: "number" , placeholder: "Contact Number" , class: "form-control form-three" %>
+                <%= text_input f , :address , placeholder: "Address" , class: "form-control form-four" %>
+                <%= text_input f , :message , placeholder: "Message" , class: "form-control form-five" %>
+            </div>
+
+        <%= if @conn.assigns[:user] do %>
+            <%= submit "Book" , class: "btn btn-primary" , disabled: false %>
+        <% else %>
+            <h4 class="error-login"> Please login to book </h4>
+            <%= submit "Book" , class: "btn btn-primary" , disabled: true %>
+        <% end %> 
+        <% end %>
+    </div>        
+</div>
+
