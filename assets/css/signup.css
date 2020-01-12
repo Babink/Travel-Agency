@@ -1,0 +1,27 @@
+.signup{
+    grid-row: 1/2;
+    grid-column: 1/-1;
+    height: 500px;
+
+    display: grid;
+    grid-template-rows: repeat(2 , 1fr);
+    grid-template-columns: repeat(2 , 1fr);
+}
+
+.signup-header{
+    grid-row: 1/2;
+    grid-column: 1/-1;
+
+    align-self: flex-start;
+    justify-self: center;
+}
+
+.signup-form{
+    grid-row: 1/-1;
+    grid-column: 1/-1;
+
+    width: 25%;
+    height: 70%;
+    align-self: center;
+    justify-self: center;
+}

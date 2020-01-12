@@ -1,16 +1,18 @@
-<div class="signup-main">
+<div class="signup">
 
-    <h1 class="heading-main__signup"> This will be signup page </h1>
-    <%= form_for @changeset , Routes.auth_path(@conn , :signup) , fn f ->  %>
-    <div class="form-group center">
-        <%= text_input f , :name , placeholder: "User Name" , class: "form-control" %>
-        <%= text_input f , :email , placeholder: "Email" , class: "form-control" %>
-        <%= text_input f , :password , type: "password" , placeholder: "Password" , class: "form-control" %>
+    <h1 class="signup-header"> This will be signup page </h1>
+    <div class="signup-form">
+        <%= form_for @changeset , Routes.auth_path(@conn , :signup) , fn f ->  %>
+        <div class="signup-center">
+            <%= text_input f , :name , placeholder: "User Name" , class: "form-control" %>
+            <%= text_input f , :email , placeholder: "Email" , class: "form-control" %>
+            <%= text_input f , :password , type: "password" , placeholder: "Password" , class: "form-control" %>
+        </div>
+            <%= submit "Sign up" , class: "btn btn-primary auth-button" %>
+        <% end %>
+
+        <%= link "Have an Account ?" , to: Routes.auth_path(@conn, :login_page) , class: "btn btn-primary center" %>
     </div>
-    <%= submit "Sign up" , class: "btn btn-primary auth-button" %>
-<% end %>
-
-<%= link "Have an Account ?" , to: Routes.auth_path(@conn, :login_page) , class: "btn btn-primary center" %>
 </div>
 
 

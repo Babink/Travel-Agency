@@ -1,14 +1,16 @@
 <div class="login-main">
     <h1 class="heading-main"> Login </h1>
 
-<%= form_for @changeset  ,Routes.auth_path(@conn , :login) , fn f -> %>
-    <div class="form-group">
-        <%= text_input f , :email , placeholder: "Email" , class: "form-control" %>
-        <%= text_input f , :password , type: "password" , placeholder: "Password" , class: "form-control" %>
+    <div class="center">
+        <%= form_for @changeset  ,Routes.auth_path(@conn , :login) , fn f -> %>
+            <div class="form-group">
+                <%= text_input f , :email , placeholder: "Email" , class: "form-control" %>
+                <%= text_input f , :password , type: "password" , placeholder: "Password" , class: "form-control" %>
+            </div>
+
+            <%= submit "Login" , class: "btn btn-primary" %>
+        <% end %>
+
+        <%= link "Don't have Account?" , to: Routes.auth_path(@conn , :create_acc) , class: "btn btn-primary center" %>
     </div>
-
-    <%= submit "Login" , class: "btn btn-primary" %>
-<% end %>
-
-<%= link "Don't have Account?" , to: Routes.auth_path(@conn , :create_acc) , class: "btn btn-primary center" %>
 </div>

@@ -32,6 +32,8 @@
     display: grid;
     grid-row: repeat(2 , 1fr);
     grid-column: repeat(5 , 1fr);
+
+    padding: 15px;
 }
 
 .header-first{
