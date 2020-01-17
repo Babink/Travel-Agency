@@ -23,52 +23,5 @@
             <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
         </div>
         <% end %>
-    </div>
-
-    <div class="view-two">
-         <%= for image <- @images do %>
-        <div class="view-two-1">
-            <img src="<%= image.images.url %>" class="view-img img-view" />
-            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
-        </div>
-
-        <div class="view-two-2">
-            <img src="<%= image.images.url %>" class="view-img img-view" />
-            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
-        </div>
-
-        <div class="view-two-3">
-            <img src="<%= image.images.url %>" class="view-img img-view" />
-            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
-        </div>
-
-        <div class="view-two-4">
-            <img src="<%= image.images.url %>" class="view-img img-view" />
-            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
-        </div>
-        <% end %>
-    </div>
-    <div class="view-three">
-         <%= for image <- @images do %>
-        <div class="view-three-1">
-            <img src="<%= image.images.url %>" class="view-img img-view" />
-            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
-        </div>
-
-        <div class="view-three-2">
-            <img src="<%= image.images.url %>" class="view-img img-view" />
-            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
-        </div>
-
-        <div class="view-three-3">
-            <img src="<%= image.images.url %>" class="view-img img-view" />
-            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
-        </div>
-
-        <div class="view-three-4">
-            <img src="<%= image.images.url %>" class="view-img img-view" />
-            <%= link "View Details" , to: Routes.admin_path(@conn , :get_detail , image.id) , class: "view-details" %> 
-        </div>
-        <% end %>
-    </div>
+    </div>  
 </div>
