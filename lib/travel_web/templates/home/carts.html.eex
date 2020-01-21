@@ -1,0 +1,24 @@
+<div class="cart">
+    <div class="cart-app">
+    <%= for data <- @user_data do %>
+        <div class="cart-card">
+            <div class="cart-card-img">
+                <%= for image <- data.images do %>
+                    <p class="cart-card-img-side"> Tour Site: <%= image %> </p>
+                <% end %>
+            </div>
+
+            <div class="cart-card-info">
+                <p class="cart-card_info"> Name: <%= data.name %> </p>
+                <p class="cart-card_info"> Address: <%= data.address %> </p>
+                <p class="cart-card_info"> Contact: <%= data.contact %> </p>
+                <p class="cart-card_info"> Number of People: <%= data.person %> </p>
+            </div>
+
+            <div class="cart-card-confirm">
+                <%= link "Cancel", to: Routes.home_path(@conn , :cancel_book , data.id) ,class: "cart-card-btn" %> 
+            </div>
+        </div>
+    <% end %>
+    </div>
+</div>

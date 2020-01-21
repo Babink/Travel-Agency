@@ -5,6 +5,8 @@ defmodule TravelWeb.HomeController do
     alias Travel.Repo
     alias TravelWeb.Book
 
+    import Ecto.Query, only: [from: 2]
+
     # plug TravelWeb.Plugs.RequireAuth when action in [:book]
 
     def index(conn , _params) do
@@ -22,7 +24,6 @@ defmodule TravelWeb.HomeController do
     end
 
     def book_post(conn , %{"book" => %{"address" => address , "contact" => contact , "name" => name , "person" => person , "message" => message} , "id" => params_id}) do
-
         urls = Repo.get!(Images , params_id)
         changesets = conn.assigns[:user] 
 
@@ -73,10 +74,6 @@ defmodule TravelWeb.HomeController do
                 {:error , changeset} ->
                     render conn , "bhutan.html" , images: urls , changeset: changeset
             end
-
-        # changeset = conn.assigns[:user]  
-        #     |> Ecto.build_assoc(:books)
-            
         
     end
 
@@ -84,10 +81,6 @@ defmodule TravelWeb.HomeController do
         changeset = Book.changeset(%Book{} , %{});
         
         urls = Repo.get!(Images , params_id)
-
-        IO.puts "/////////////////////////////////////////"
-        IO.inspect(urls)
-        IO.puts "/////////////////////////////////////////"
         render conn , "bhutan.html" , images: urls , changeset: changeset
     end
 
@@ -115,5 +108,35 @@ defmodule TravelWeb.HomeController do
     def trek(conn , _params) do
         urls = Repo.all(Images)
         render conn , "trek.html" , images: urls
+    end
+
+    def cancel_book(conn , %{"id" => params_id}) do
+        user = conn.assigns[:user]
+        user_id = user.id
+        query = from b in Book , where: b.user_id == ^user_id , select: b
+        user_book = Repo.all(query)
+        val = Enum.map(user_book , fn x -> %{:id => x.id , :name => x.name, :person => x.person , :contact => x.contact , :address => x.address , :images => get_images(x.images_id)} end)
+
+        #Deleting booked item
+
+        new_val = Repo.get(Book , params_id)
+        query = from b in Book , where: b.id == ^params_id
+        result = Repo.delete_all(query)
+        render conn , "carts.html" , user_data: val
+    end
+
+
+    def carts(conn , _params) do
+        user = conn.assigns[:user]
+        user_id = user.id
+        query = from b in Book , where: b.user_id == ^user_id , select: b
+        user_book = Repo.all(query)
+        val = Enum.map(user_book , fn x -> %{:id => x.id , :name => x.name, :person => x.person , :contact => x.contact , :address => x.address , :images => get_images(x.images_id)} end)
+        render conn , "carts.html" , user_data: val
+    end
+
+    def get_images(image_id) do
+        query = from i in Images , where: i.id == ^image_id , select: i.heading
+        user_images = Repo.all(query)
     end
 end

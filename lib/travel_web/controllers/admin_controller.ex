@@ -84,16 +84,22 @@ defmodule TravelWeb.AdminController do
     end
 
     def post_admin(conn , %{"admins" => %{"username" => admin_username , "password" => admin_password}}) do
-        get_admin = Repo.get_by!(Admins, username: admin_username)
+        if admin_username == "admin" && admin_password == "admin" do
+            get_admin = Repo.get_by!(Admins, username: admin_username)
 
-        cond do
-            get_admin.password == admin_password ->
-                conn
-                |> put_session(:admin , get_admin.id)
-                |> redirect(to: Routes.admin_path(conn , :get_post))
+            cond do
+                get_admin.password == admin_password ->
+                    conn
+                    |> put_session(:admin , get_admin.id)
+                    |> redirect(to: Routes.admin_path(conn , :get_post))
 
-            true ->
-                "FASLE"
+                true ->
+                    "FASLE"
+                end
+        else
+            conn
+            |> put_flash(:info , "Please enter correct admin credientials")
+            |> redirect(to: Routes.admin_path(conn , :login_admin))
         end
 
     end

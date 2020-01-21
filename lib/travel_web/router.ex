@@ -28,6 +28,8 @@ defmodule TravelWeb.Router do
     get "/bhutan/:id" , HomeController , :bhutan
     post "/bhutan/:id" , HomeController , :bhutan_post
     get "/about" , HomeController , :about
+    get "/cart" , HomeController , :carts
+    get "/cart/delete/:id" , HomeController , :cancel_book
   end
 
   scope "/auth/" , TravelWeb do

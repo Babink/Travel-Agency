@@ -16,7 +16,11 @@
       <%= link "Heritage sites" ,class: "app-header__heritage" , to: Routes.home_path(@conn , :heritage , 19) %>
       <%= link "Trek",class: "app-header__trek" , to: Routes.home_path(@conn , :trek) %>
       <%= link "Bhutan", class: "app-header__about" , to: Routes.home_path(@conn , :bhutan , 52) %>
-      <%= link "About", class: "app-header__contact" , to: Routes.home_path(@conn , :about) %>
+      <%= if @conn.assigns.user do %>
+        <%= link "Carts", class: "app-header__contact" , to: Routes.home_path(@conn , :carts) %>
+      <%= else %>
+        <%= link "About", class: "app-header__contact" , to: Routes.home_path(@conn , :about) %>
+      <% end %>
       <%= if @conn.assigns.user do %>
         <%= link "Logout", class: "app-header__login" , to: Routes.auth_path(@conn , :logout) %>
       <%= else %>
