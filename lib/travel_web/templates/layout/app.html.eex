@@ -17,7 +17,7 @@
       <%= link "Trek",class: "app-header__trek" , to: Routes.home_path(@conn , :trek) %>
       <%= link "Bhutan", class: "app-header__about" , to: Routes.home_path(@conn , :bhutan , 52) %>
       <%= if @conn.assigns.user do %>
-        <%= link "Carts", class: "app-header__contact" , to: Routes.home_path(@conn , :carts) %>
+        <%= link "Charts", class: "app-header__contact" , to: Routes.home_path(@conn , :carts) %>
       <%= else %>
         <%= link "About", class: "app-header__contact" , to: Routes.home_path(@conn , :about) %>
       <% end %>

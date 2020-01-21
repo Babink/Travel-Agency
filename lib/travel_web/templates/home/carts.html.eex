@@ -1,11 +1,14 @@
 <div class="cart">
     <div class="cart-app">
+    <%= if @data_length === 0 do %>
+        <div class="handle_error">
+            <h3 class="handle_error-title"> Sorry you don't have any items in chart.. </h4>
+            <%= link "Back to Home" ,to: Routes.home_path(@conn , :index), class: "handle_error-btn" %>
+        </div>
+    <% end %>
     <%= for data <- @user_data do %>
         <div class="cart-card">
             <div class="cart-card-img">
-                <%= for image <- data.images do %>
-                    <p class="cart-card-img-side"> Tour Site: <%= image %> </p>
-                <% end %>
             </div>
 
             <div class="cart-card-info">

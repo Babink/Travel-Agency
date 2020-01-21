@@ -19,6 +19,69 @@
     grid-template-rows: repeat(4 , 1fr);
 }
 
+.handle_error{
+    grid-row: 1/-1;
+    grid-column: 1/-1;
+
+    width: 80%;
+    height: 80%;
+    align-self: flex-start;
+    justify-self: center;
+
+    border-radius: 30px;
+    background-image: linear-gradient( to right, rgba(27, 79, 146, 0.781) , rgba(50, 31, 94, 0.836));
+
+    display: grid;
+    grid-template-rows: repeat(2 , 1fr);
+    grid-template-columns: repeat(2, 1fr);
+
+    transition: transform .4s ease-in-out;
+}
+
+.handle_error:hover{
+    transform: translateY(-2px);
+}
+
+.handle_error-title{
+    grid-row: 1/2;
+    grid-column: 1/-1;
+
+    font-size: 25px;
+    font-weight: 1000;
+    
+    align-self: flex-end;
+    justify-self: center;
+    color: white;
+
+    text-transform: capitalize;
+}
+
+.handle_error-btn{
+    grid-row: 2/3;
+    grid-column: 1/-1;
+
+    
+    align-self: flex-start;
+    justify-self: center;
+
+    background-color: white;
+    color: green;
+    border: 1px solid green;
+    transition: transform .4s ease-out;
+    padding: 15px;
+
+    border-radius: 10px;
+    border: none;
+}
+
+.handle_error-btn:hover{
+    background-color: green;
+    border: none;
+    color: white;
+
+    transform: translateY(-5px);
+}
+
 .cart-card{
     width: 80%;
     height: 98%;

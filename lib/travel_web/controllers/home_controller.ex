@@ -115,14 +115,26 @@ defmodule TravelWeb.HomeController do
         user_id = user.id
         query = from b in Book , where: b.user_id == ^user_id , select: b
         user_book = Repo.all(query)
-        val = Enum.map(user_book , fn x -> %{:id => x.id , :name => x.name, :person => x.person , :contact => x.contact , :address => x.address , :images => get_images(x.images_id)} end)
+        val = Enum.map(user_book , fn x -> %{:id => x.id , :name => x.name, :person => x.person , :contact => x.contact , :address => x.address} end)
 
         #Deleting booked item
 
         new_val = Repo.get(Book , params_id)
         query = from b in Book , where: b.id == ^params_id
         result = Repo.delete_all(query)
-        render conn , "carts.html" , user_data: val
+        IO.inspect(result)
+        IO.puts "///////////////////////////////||||||||||||||||||||\\\\\\\\\\\\\\\\\\"
+
+        case result do
+            {1 , nil} ->
+                conn
+                |> redirect(to: Routes.home_path(conn , :index))
+            
+            _ ->
+                conn
+                |> put_flash(:info , "Unable to delete charts")
+                |> redirect(to: Routes.home_path(conn , :carts))
+        end
     end
 
 
@@ -131,8 +143,8 @@ defmodule TravelWeb.HomeController do
         user_id = user.id
         query = from b in Book , where: b.user_id == ^user_id , select: b
         user_book = Repo.all(query)
-        val = Enum.map(user_book , fn x -> %{:id => x.id , :name => x.name, :person => x.person , :contact => x.contact , :address => x.address , :images => get_images(x.images_id)} end)
-        render conn , "carts.html" , user_data: val
+        val = Enum.map(user_book , fn x -> %{:id => x.id , :name => x.name, :person => x.person , :contact => x.contact , :address => x.address} end)
+        render conn , "carts.html" , user_data: val , data_length: length(user_book)
     end
 
     def get_images(image_id) do
