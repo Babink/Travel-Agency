@@ -8,15 +8,16 @@
     <% end %>
     <%= for data <- @user_data do %>
         <div class="cart-card">
-            <div class="cart-card-img">
-            </div>
-
-            <div class="cart-card-info">
-                <p class="cart-card_info"> Name: <%= data.name %> </p>
-                <p class="cart-card_info"> Address: <%= data.address %> </p>
-                <p class="cart-card_info"> Contact: <%= data.contact %> </p>
-                <p class="cart-card_info"> Number of People: <%= data.person %> </p>
-            </div>
+            <%= for docs <- data.images do %>
+                        <div class="cart-card-1">
+                            <img class="cart-card-img" src="<%= docs.image %>" />
+                            <div class="cart-card-content">
+                                <h4 class='cart-card-item'> Trek Name: <%= docs.title %> </h4>
+                                <h4 class='cart-card-item'> Price: <%= docs.price %> </h4>
+                                <h4 class='cart-card-item'> Days: <%= docs.days %> </h4>
+                            </div>
+                        </div>
+            <% end %>
 
             <div class="cart-card-confirm">
                 <%= link "Cancel", to: Routes.home_path(@conn , :cancel_book , data.id) ,class: "cart-card-btn" %> 

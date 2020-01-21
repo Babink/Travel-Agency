@@ -122,8 +122,6 @@ defmodule TravelWeb.HomeController do
         new_val = Repo.get(Book , params_id)
         query = from b in Book , where: b.id == ^params_id
         result = Repo.delete_all(query)
-        IO.inspect(result)
-        IO.puts "///////////////////////////////||||||||||||||||||||\\\\\\\\\\\\\\\\\\"
 
         case result do
             {1 , nil} ->
@@ -138,17 +136,36 @@ defmodule TravelWeb.HomeController do
     end
 
 
+    def get_real_image(id) do
+        books = from i in Images , where: i.id == ^id, select: i
+        book_images = Repo.all(books)
+        book_data = Enum.map(book_images , fn x -> %{
+            :title => x.heading,
+            :price => x.price,
+            :days => x.days,
+            :image => x.url
+        } end)
+    end
+
+
     def carts(conn , _params) do
+        # USER DATA
         user = conn.assigns[:user]
         user_id = user.id
         query = from b in Book , where: b.user_id == ^user_id , select: b
         user_book = Repo.all(query)
-        val = Enum.map(user_book , fn x -> %{:id => x.id , :name => x.name, :person => x.person , :contact => x.contact , :address => x.address} end)
-        render conn , "carts.html" , user_data: val , data_length: length(user_book)
-    end
+        user_data = Enum.map(user_book , fn x -> %{
+        :id => x.id ,
+        :name => x.name,
+        :person => x.person ,
+        :contact => x.contact ,
+        :address => x.address,
+        :user_id => x.user_id,
+        :images => get_real_image(x.images_id)
+        }end)
+        
+        IO.inspect(user_data)
 
-    def get_images(image_id) do
-        query = from i in Images , where: i.id == ^image_id , select: i.heading
-        user_images = Repo.all(query)
+        render conn , "carts.html" , user_data: user_data , data_length: length(user_book)
     end
 end
